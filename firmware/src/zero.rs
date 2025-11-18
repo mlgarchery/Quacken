@@ -138,6 +138,15 @@ where
         )
     }
 
+    // To use after creating the QuackenZeroMatrix if the microcontroller was soldered face down.
+    // Cols and rows order is modified like this:
+    // [c0, c1, c2, c3, c4, c5]           --> [c3, c4, c5, c0, c1, c2]
+    // [r0, r1, r2, r3, r4, r5, r6, r7]   --> [r4, r5, r6, r7, r0, r1, r2, r3]
+    pub fn upside_down(&mut self) {
+        self.cols.rotate_left(MATRIX_COLS / 2);
+        self.rows.rotate_left(MATRIX_ROWS / 2);
+    }
+
     /// Scans the matrix and checks which keys are pressed.
     ///
     /// Every column pin in order is pulled high, and then each row pin is tested:
