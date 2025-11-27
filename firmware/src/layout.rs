@@ -1,4 +1,4 @@
-const LAYER_COUNT: usize = 6; // adjust to the number of layers defined below
+const LAYER_COUNT: usize = 3; // adjust to the number of layers defined below
 
 pub const COLS: usize = 12;
 pub const ROWS: usize = 4;
@@ -30,10 +30,10 @@ const FWD: Action<()> = Action::KeyCode(KeyCode::MediaForward);
 pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout! {
 
     { // base layer -- don't worry about lhe key names, this will reflect your OS keyboard layout
-        [ Tab       Q    W    E    R    T         Y    U    I    O    P    BSpace ],
-        [ Escape    A    S    D    F    G         H    J    K    L    ;     Enter ],
-        [ LShift    Z    X    C    V    B         N    M    ,    .    /    RShift ],
-        [ n n n             LAlt LCtrl LGui      (1) Space RAlt             n n n ],
+        [ Escape Q    W    E    R    T         Y    U    I    O    P    BSpace ],
+        [ Tab    A    S    D    F    G         H    J    K    L    ;     Enter ],
+        [ LShift Z    X    C    V    B         N    M    ,    .    /    RShift ],
+        [ n n n         LCtrl Space (1)        LGui Space RAlt             n n n ],
     }
 
     // Navigation, Numbers, Cmd-ZXCV:
@@ -44,27 +44,27 @@ pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout!
         [ t        Tab  Home  Up   End  PgUp      n    7    8    9    n    Delete ],
         [ t    CapsLock Left Down Right PgDown    n    4    5    6    0         t ],
         [ t    {UNDO}{CUT}{COPY}{PASTE}{STB}      n    1    2    3    n         t ],
-        [ n n n               t  Space (4)        t    t    t               n n n ],
+        [ n n n               t  Space   t       (2)  LAlt  t               n n n ],
     }
-    { // NumRow
-        [ t         !    @    #    $    %         ^    &    *   '('  ')'        t ],
-        [ t         1    2    3    4    5         6    7    8    9    0         t ],
-        [ t    {UNDO}{CUT}{COPY}{PASTE} n         n    n    n    n    n         t ],
-        [ n n n               t    t    t         t    t    t               n n n ],
-    }
-    { // VimNav
-        [ t CapsLock {CLOSE}{BCK}{FWD}  n      Home PgDown PgUp  End  n    Delete ],
-        [ t     {ALL}{SAVE}{STB}  Tab   n      Left  Down   Up  Right n         t ],
-        [ t    {UNDO}{CUT}{COPY}{PASTE} n         n    n    n    n    n         t ],
-        [ n n n               t    t    t         t    t    t               n n n ],
-    }
+    // { // NumRow
+    //     [ t         !    @    #    $    %         ^    &    *   '('  ')'        t ],
+    //     [ t         1    2    3    4    5         6    7    8    9    0         t ],
+    //     [ t    {UNDO}{CUT}{COPY}{PASTE} n         n    n    n    n    n         t ],
+    //     [ n n n               t    t    t         t    t    t               n n n ],
+    // }
+    // { // VimNav
+    //     [ t CapsLock {CLOSE}{BCK}{FWD}  n      Home PgDown PgUp  End  n    Delete ],
+    //     [ t     {ALL}{SAVE}{STB}  Tab   n      Left  Down   Up  Right n         t ],
+    //     [ t    {UNDO}{CUT}{COPY}{PASTE} n         n    n    n    n    n         t ],
+    //     [ n n n               t    t    t         t    t    t               n n n ],
+    // }
 
     // Function Keys
 
     {
         [ t        F1   F2   F3   F4    n         n Pause PScreen ScrollLock n  t  ],
-        [ t        F5   F6   F7   F8    n         n  LAlt RCtrl RGui RShift     t  ],
-        [ t        F9   F10  F11  F12   n         n    n    n    n    n         t  ],
+        [ t        F5   F6   F7   F8    n         n  {ALL}  {BCK}  {FWD} {SAVE} t  ],
+        [ t        F9   F10  F11  F12   n         n    n    n    n      {CLOSE} t  ],
         [ n n n               t    t    t         t    t    t               n n n  ],
     }
 
@@ -72,11 +72,11 @@ pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout!
     // (or if you prefer sending the proper key code, e.g. for keyboard shortcuts).
     // On a non-QWERTY layout, you'll have to make a few adjustments.
 
-    { // QWERTY
-        [ t         ^    <    >    $    %         @    &    *  '\''  '`'        t ],
-        [ t        '{'  '('  ')'  '}'   =       '\\'   +    -    /   '"'        t ],
-        [ t         ~   '['  ']'  '_'   #         |    !    ;    :    ?         t ],
-        [ n n n              (2) Space  t         t    t    t               n n n ],
-    }
+    // { // QWERTY
+    //     [ t         ^    <    >    $    %         @    &    *  '\''  '`'        t ],
+    //     [ t        '{'  '('  ')'  '}'   =       '\\'   +    -    /   '"'        t ],
+    //     [ t         ~   '['  ']'  '_'   #         |    !    ;    :    ?         t ],
+    //     [ n n n              (2) Space  t         t    t    t               n n n ],
+    // }
 
 };

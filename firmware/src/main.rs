@@ -139,7 +139,7 @@ mod app {
         #[allow(unused_mut)]
         let Ok(mut matrix) = QuackenZeroMatrix::new_sparkfun_rp2040(pins);
         //// Uncomment if you soldered your microcontroller face down:
-        // matrix.upside_down();
+        matrix.upside_down();
 
         (
             Shared {
