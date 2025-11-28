@@ -62,7 +62,7 @@ pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout!
     // Function Keys
 
     {
-        [ t        F1   F2   F3   F4    n         n Pause PScreen ScrollLock n  t  ],
+        [ t        F1   F2   F3   F4    n         n Pause PScreen    t     n    t  ],
         [ t        F5   F6   F7   F8    n         n  {ALL}  {BCK}  {FWD} {SAVE} t  ],
         [ t        F9   F10  F11  F12   n         n    n    n    n      {CLOSE} t  ],
         [ n n n               t    t    t         t    t    t               n n n  ],
