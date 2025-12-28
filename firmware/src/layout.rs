@@ -13,21 +13,21 @@ pub type QuackenLayout = layout::Layout<COLS, ROWS, LAYER_COUNT, ()>;
 // const CLOSE: Action<()> = m(&[KeyCode::LCtrl, KeyCode::T].as_slice());
 // const COPY:  Action<()> = m(&[KeyCode::LCtrl, KeyCode::W].as_slice());
 const CTRL: KeyCode = KeyCode::LCtrl; // would give CMD on macOS
-const SUPER: KeyCode = KeyCode::LGui; // would give CMD on macOS
+// const SUPER: KeyCode = KeyCode::LGui; // would give CMD on macOS
 // const UNDO: Action<()> = m(&[CTRL, KeyCode::Z].as_slice());
 // const CUT: Action<()> = m(&[CTRL, KeyCode::X].as_slice());
 const COPY: Action<()> = m(&[CTRL, KeyCode::C].as_slice());
 const PASTE: Action<()> = m(&[CTRL, KeyCode::V].as_slice());
-const ALL: Action<()> = m(&[CTRL, KeyCode::A].as_slice());
-const SAVE: Action<()> = m(&[CTRL, KeyCode::S].as_slice());
-const CLOSE: Action<()> = m(&[CTRL, KeyCode::W].as_slice());
-const FIRST: Action<()> = m(&[SUPER, KeyCode::Kb1].as_slice()); // first windows focus 
-const SECOND: Action<()> = m(&[SUPER, KeyCode::Kb2].as_slice()); // second windows focus   s
+// const SAVE: Action<()> = m(&[CTRL, KeyCode::S].as_slice());
+// const FIRST: Action<()> = m(&[SUPER, KeyCode::Kb1].as_slice()); // first windows focus
+// const SECOND: Action<()> = m(&[SUPER, KeyCode::Kb2].as_slice()); // second windows focus   s
 
 // other shortcuts
 const STB: Action<()> = m(&[KeyCode::RShift, KeyCode::Tab].as_slice());
-const BCK: Action<()> = Action::KeyCode(KeyCode::MediaBack);
-const FWD: Action<()> = Action::KeyCode(KeyCode::MediaForward);
+
+// Médias
+// const BCK: Action<()> = Action::KeyCode(KeyCode::MediaBack);
+// const FWD: Action<()> = Action::KeyCode(KeyCode::MediaForward);
 
 #[rustfmt::skip]
 pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout! {
@@ -39,16 +39,16 @@ pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout!
         [ n n n          LCtrl Space (1)          LGui Space RAlt           n n n ],
     }
     { // NumNav
-        [ t        t        Tab  Up   End  PgUp      n    7    8    9    n    Delete ],
+        [ t       Tab      Tab  Up   End  PgUp      n    7    8    9    n    Delete ],
         [ LAlt    CapsLock Left Down Right PgDown    n    4    5    6    0         t ],
-        [ LShift  {FIRST}{SECOND}{COPY}{PASTE}{STB}  n    1    2    3    n    RShift ],
+        [ LShift  n        n    {COPY}{PASTE}{STB}  n    1    2    3    n    RShift ],
         [ n n n            LCtrl  Space     t        (2)  LAlt  t              n n n ],
     }
     // Function Keys
     {
-        [ t        F1   F2   F3   F4    n         n Pause PScreen    t     n    t  ],
-        [ t        F5   F6   F7   F8    n         n  {ALL}  {BCK}  {FWD} {SAVE} t  ],
-        [ t        F9   F10  F11  F12   n         n    n    n    n      {CLOSE} t  ],
-        [ n n n               t    t    t         t    t    t               n n n  ],
+        [ t        F1   F2   F3   F4    n         n             MediaPlayPause  PScreen             t               n    t  ],
+        [ t        F5   F6   F7   F8    n         MediaVolDown  MediaVolUp      MediaPreviousSong   MediaNextSong   Mute t  ],   
+        [ t        F9   F10  F11  F12   n         n             n               n           n                       n    t  ],
+        [ n n n               t    t    t         t             t               t           n                       n    n  ],
     }
 };
