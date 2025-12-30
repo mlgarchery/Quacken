@@ -39,10 +39,10 @@ pub static LAYERS: layout::Layers<COLS, ROWS, LAYER_COUNT, ()> = layout::layout!
         [ n n n          LCtrl Space (1)          LGui Space RAlt           n n n ],
     }
     { // NumNav
-        [ t       Tab      Tab  Up   End  PgUp      n    7    8    9    n    Delete ],
-        [ LAlt    CapsLock Left Down Right PgDown    n    4    5    6    0         t ],
-        [ LShift  n        n    {COPY}{PASTE}{STB}  n    1    2    3    n    RShift ],
-        [ n n n            LCtrl  Space     t        (2)  LAlt  t              n n n ],
+        [ t       Tab      Tab  Up   End  PgUp      n    7    8    9    n      Delete ],
+        [ t    CapsLock Left Down Right PgDown      n    4    5    6    0         t ],
+        [ t       n        n    {COPY}{PASTE}{STB}  n    1    2    3    n      t ],
+        [ n n n            t    Space     t        (2)  LAlt  t              n n n ],
     }
     // Function Keys
     {
